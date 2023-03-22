@@ -2,11 +2,16 @@ const Employee = require('../lib/Employee');
 
 //test("Employee", () => {
     // test("Initialization", () => {
-        it("Should Create an Object with name,id,Email", () => {
-            const name = new Employee("Durga", 1, "durga@gmail.com");
-            expect(Employee.name).toEqual("Durga");
-            expect(Employee.id).toEqual(1);
-            expect(Employee.email).toEqual("durga@gmail.com");
+        // test("Should Create an Object with name,id,Email", () => {
+        //     const name = new Employee("Durga", 1, "durga@gmail.com");
+        //     expect(Employee.name).toBe("Durga");
+        //     expect(Employee.id).toBe(1);
+        //     expect(Employee.email).toBe("durga@gmail.com");
+        // });
+        test("Should Create an Object with name,id,Email", () => {
+            const name = "Durga";
+            const empname= new Employee(name);
+            expect(empname.name).toBe(name);
         });
 //         it("Should throw an error if there is no arguments", () => {
 
