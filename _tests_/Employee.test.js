@@ -8,10 +8,26 @@ const Employee = require('../lib/Employee');
         //     expect(Employee.id).toBe(1);
         //     expect(Employee.email).toBe("durga@gmail.com");
         // });
-        test("Should Create an Object with name,id,Email", () => {
+        test("Should Create an Object with name", () => {
             const name = "Durga";
-            const empname= new Employee(name);
+           const empname= new Employee(name);   
             expect(empname.name).toBe(name);
+                    });
+        test("Should Create an Object with id", () => {
+            const id = 1;
+            
+            const empId= new Employee(id);
+                       
+            expect(empId.id).toBe(id);
+           
+        });
+        test("Should Create an Object with Email", () => {
+            const email = "durga@gmail.com";
+            
+            const empEmail= new Employee(email);
+                       
+            expect(empEmail.email).toBe(email);
+           
         });
 //         it("Should throw an error if there is no arguments", () => {
 
