@@ -25,6 +25,10 @@ function employeeType() {
             if (val.employee === "Manager") {
                 return addManager();
             }
+            else if(val.employee === "Engineer"){
+                return addEngineer();
+            }
+            
 
         }
         )
@@ -35,22 +39,22 @@ employeeType();
 function addManager() {
     inquirer.prompt({
         type: 'input',
-        message: 'what is you Team Manager Name',
+        message: 'what is your Team Manager Name',
         name: 'managerName'
     },
     {
         type: 'input',
-        message: 'what is you Team Manager Email',
+        message: 'what is your Team Manager Email',
         name: 'managerEmail'
     },
     {
         type: 'input',
-        message: 'what is you Team Manager Office Number',
+        message: 'what is your Team Manager Office Number',
         name: 'managerNumber'
     },
     {
         type: 'input',
-        message: 'what is you Team Manager ID',
+        message: 'what is your Team Manager ID',
         name: 'managerId'
     },
     {
@@ -65,5 +69,42 @@ function addManager() {
         console.log(manager);
     })
 }
+
+
+
+// function addEngineer() {
+//     inquirer.prompt({
+//         type: 'input',
+//         message: 'what is your Team Engineer Name',
+//         name: 'engineerName'
+//     },
+//     {
+//         type: 'input',
+//         message: 'what is your Team Engineer Email',
+//         name: 'engineerEmail'
+//     },
+//     {
+//         type: 'input',
+//         message: 'what is your Team Engineer Github',
+//         name: 'engineerGithub'
+//     },
+//     {
+//         type: 'input',
+//         message: 'what is  your Team Engineer ID',
+//         name: 'engineerId'
+//     },
+//     {
+//         type: 'list',
+//         message: 'Which type of Team Member you would like to add?',
+//         name: 'engineerteam',
+//         choices: ["Engineer","Intern","I dont want to add the members"]
+//     }
+//     )
+//     .then((eval)=>{
+//         const engineer= new Engineer(this.engineerName,this.engineerEmail,this.engineerGithub,this.engineerId,this.engineerteam);
+//         console.log(engineer);
+//     })
+// }
+
 
 
