@@ -141,6 +141,7 @@ function writeToFile(filename,mval)
             throw new Error(err)
         }
         console.log("File was written successfully");
+        console.log(fs.readFileSync(filename, "utf8"));;
     });
 }
 
