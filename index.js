@@ -28,8 +28,12 @@ function employeeType() {
             else if(val.employee === "Engineer"){
                 return addEngineer();
             }
-            
-
+            else if(val.employee === "Intern"){
+                return addIntern();
+            }
+            else if(val.employee === "I dont want to add the members"){
+                break();
+            }
         }
         )
 }
@@ -60,7 +64,7 @@ function addManager() {
    ]
     )
     .then((mval)=>{
-        const manager= new Manager(this.managerName,this.managerEmail,this.managerNumber,this.managerId,this.managerteam);
+        const manager= new Manager(this.managerName,this.managerEmail,this.managerNumber,this.managerId);
         console.log(mval);
         return employeeType();
     })
@@ -91,11 +95,43 @@ function addEngineer() {
     }]
     )
     .then((mval)=>{
-        const engineer= new Engineer(this.engineerName,this.engineerEmail,this.engineerGithub,this.engineerId,this.engineerteam);
+        const engineer= new Engineer(this.engineerName,this.engineerEmail,this.engineerGithub,this.engineerId);
         console.log(mval);
         return employeeType();
     })
 }
+
+
+
+function addIntern() {
+    inquirer.prompt([{
+        type: 'input',
+        message: 'what is your Team Intern Name',
+        name: 'internName'
+    },
+    {
+        type: 'input',
+        message: 'what is your Team Intern Email',
+        name: 'internName'
+    },
+    {
+        type: 'input',
+        message: 'what is your Team Intern School ',
+        name: 'internSchool'
+    },
+    {
+        type: 'input',
+        message: 'what is  your Team Intern ID',
+        name: 'internId'
+    }]
+    )
+    .then((mval)=>{
+        const intern= new Intern(this.internName,this.internName,this.internSchool,this.internId);
+        console.log(mval);
+        return employeeType();
+    })
+}
+
 
 
 
