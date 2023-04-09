@@ -18,7 +18,7 @@ function employeeType() {
             type: 'list',
             message: 'Select the Employee Type :',
             name: 'employee',
-            choices: ["Manager", "Engineer", "Intern"]
+            choices: ["Manager", "Engineer", "Intern","I dont want to add the members"]
         }
     )
         .then(val => {
@@ -37,7 +37,7 @@ function employeeType() {
 employeeType();
 
 function addManager() {
-    inquirer.prompt({
+    inquirer.prompt([{
         type: 'input',
         message: 'what is your Team Manager Name',
         name: 'managerName'
@@ -57,54 +57,45 @@ function addManager() {
         message: 'what is your Team Manager ID',
         name: 'managerId'
     },
-    {
-        type: 'list',
-        message: 'Which type of Team Member you would like to add?',
-        name: 'managerteam',
-        choices: ["Engineer","Intern","I dont want to add the members"]
-    }
+   ]
     )
     .then((mval)=>{
         const manager= new Manager(this.managerName,this.managerEmail,this.managerNumber,this.managerId,this.managerteam);
-        console.log(manager);
+        console.log(mval);
+        return employeeType();
     })
 }
 
 
 
-// function addEngineer() {
-//     inquirer.prompt({
-//         type: 'input',
-//         message: 'what is your Team Engineer Name',
-//         name: 'engineerName'
-//     },
-//     {
-//         type: 'input',
-//         message: 'what is your Team Engineer Email',
-//         name: 'engineerEmail'
-//     },
-//     {
-//         type: 'input',
-//         message: 'what is your Team Engineer Github',
-//         name: 'engineerGithub'
-//     },
-//     {
-//         type: 'input',
-//         message: 'what is  your Team Engineer ID',
-//         name: 'engineerId'
-//     },
-//     {
-//         type: 'list',
-//         message: 'Which type of Team Member you would like to add?',
-//         name: 'engineerteam',
-//         choices: ["Engineer","Intern","I dont want to add the members"]
-//     }
-//     )
-//     .then((eval)=>{
-//         const engineer= new Engineer(this.engineerName,this.engineerEmail,this.engineerGithub,this.engineerId,this.engineerteam);
-//         console.log(engineer);
-//     })
-// }
+function addEngineer() {
+    inquirer.prompt([{
+        type: 'input',
+        message: 'what is your Team Engineer Name',
+        name: 'engineerName'
+    },
+    {
+        type: 'input',
+        message: 'what is your Team Engineer Email',
+        name: 'engineerEmail'
+    },
+    {
+        type: 'input',
+        message: 'what is your Team Engineer Github',
+        name: 'engineerGithub'
+    },
+    {
+        type: 'input',
+        message: 'what is  your Team Engineer ID',
+        name: 'engineerId'
+    }]
+    )
+    .then((mval)=>{
+        const engineer= new Engineer(this.engineerName,this.engineerEmail,this.engineerGithub,this.engineerId,this.engineerteam);
+        console.log(mval);
+        return employeeType();
+    })
+}
 
 
 
