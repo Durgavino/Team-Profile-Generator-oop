@@ -5,10 +5,10 @@ const path = require('path');
 const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
-const generateHtml=require('./src/generateHtml');
+const generateHtml = require('./src/generateHtml');
 
-const employeeList=[];
-    
+const employeeList = [];
+
 
 function employeeType() {
     inquirer.prompt(
@@ -16,26 +16,27 @@ function employeeType() {
             type: 'list',
             message: 'Select the Employee Type :',
             name: 'employee',
-            choices: ["Manager", "Engineer", "Intern","I dont want to add the members"]
+            choices: ["Manager", "Engineer", "Intern", "I dont want to add the members"]
         }
     )
         .then(val => {
             if (val.employee === "Manager") {
                 return addManager();
             }
-            else if(val.employee === "Engineer"){
+            else if (val.employee === "Engineer") {
                 return addEngineer();
             }
-            else if(val.employee === "Intern"){
+            else if (val.employee === "Intern") {
                 return addIntern();
             }
-            else if(val.employee === "I dont want to add the members"){
-                return 0;
+            else if (val.employee === "I dont want to add the members") {
+                filesys();
+              return 0;
+
             }
         }
         )
 }
-
 employeeType();
 
 function addManager() {
@@ -59,15 +60,15 @@ function addManager() {
         message: 'what is your Team Manager ID',
         name: 'managerId'
     },
-   ]
+    ]
     )
-    .then((mval)=>{
-        const manager= new Manager(mval.managerName,mval.managerEmail,mval.managerNumber,mval.managerId);
-        console.log(manager);
-        employeeList.push(manager);
-       // writeToFile("")
-        return employeeType();
-    })
+        .then((mval) => {
+            const manager = new Manager(mval.managerName, mval.managerEmail, mval.managerNumber, mval.managerId);
+            console.log(manager);
+            employeeList.push(manager);
+            // writeToFile("")
+            return employeeType();
+        })
 }
 
 
@@ -94,12 +95,12 @@ function addEngineer() {
         name: 'engineerId'
     }]
     )
-    .then((mval)=>{
-        const engineer= new Engineer(mval.engineerName,mval.engineerEmail,mval.engineerGithub,mval.engineerId);
-        console.log(engineer);
-      // employeeList.push(engineer);
-        return employeeType();
-    })
+        .then((mval) => {
+            const engineer = new Engineer(mval.engineerName, mval.engineerEmail, mval.engineerGithub, mval.engineerId);
+            console.log(engineer);
+            // employeeList.push(engineer);
+            return employeeType();
+        })
 }
 
 
@@ -126,22 +127,22 @@ function addIntern() {
         name: 'internId'
     }]
     )
-    .then((mval)=>{
-        const intern= new Intern(this.internName,this.internName,this.internSchool,this.internId);
-        console.log(mval);
-//        employeeList.push(mval);
-        return employeeType();
-    })
+        .then((mval) => {
+            const intern = new Intern(mval.internName, mval.internName, mval.internSchool, mval.internId);
+            console.log(intern);
+               employeeList.push(intern);
+            return employeeType();
+        })
 }
 
-function writeToFile(filename,mval)
-{
-    fs.watchFile(filename,generateHtml(mval),(err)=>{
-        if(err){
-            throw new Error(err)
-        }
-        console.log("File was written successfully");
-        console.log(fs.readFileSync(filename, "utf8"));;
-    });
-}
+const filesys =(manager)=>{
 
+
+fs.writeFile("./dist/index.html",`hello${manager}`,"utf8",function(err){
+    if(err){
+        throw err;
+        
+    }
+    console.log("File Written");
+})
+}
