@@ -5,12 +5,10 @@ const path = require('path');
 const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
+const generateHtml=require('./src/generateHtml');
 
-class question{
-    constructor(){
-        this.employeeList=[];
-    }
-}
+const employeeList=[];
+    
 
 function employeeType() {
     inquirer.prompt(
@@ -32,7 +30,7 @@ function employeeType() {
                 return addIntern();
             }
             else if(val.employee === "I dont want to add the members"){
-                break();
+                return 0;
             }
         }
         )
@@ -64,8 +62,10 @@ function addManager() {
    ]
     )
     .then((mval)=>{
-        const manager= new Manager(this.managerName,this.managerEmail,this.managerNumber,this.managerId);
-        console.log(mval);
+        const manager= new Manager(mval.managerName,mval.managerEmail,mval.managerNumber,mval.managerId);
+        console.log(manager);
+        employeeList.push(manager);
+       // writeToFile("")
         return employeeType();
     })
 }
@@ -95,8 +95,9 @@ function addEngineer() {
     }]
     )
     .then((mval)=>{
-        const engineer= new Engineer(this.engineerName,this.engineerEmail,this.engineerGithub,this.engineerId);
-        console.log(mval);
+        const engineer= new Engineer(mval.engineerName,mval.engineerEmail,mval.engineerGithub,mval.engineerId);
+        console.log(engineer);
+      // employeeList.push(engineer);
         return employeeType();
     })
 }
@@ -128,10 +129,18 @@ function addIntern() {
     .then((mval)=>{
         const intern= new Intern(this.internName,this.internName,this.internSchool,this.internId);
         console.log(mval);
+//        employeeList.push(mval);
         return employeeType();
     })
 }
 
-
-
+function writeToFile(filename,mval)
+{
+    fs.watchFile(filename,generateHtml(mval),(err)=>{
+        if(err){
+            throw new Error(err)
+        }
+        console.log("File was written successfully");
+    });
+}
 
