@@ -10,15 +10,18 @@ const generateemployeeList = (employeeList) => {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.i">
-        <title>Team Profile Generator</title>
-    </head>
+            </head>
     <body>
-        
-      MANAGER NAME: ${manager.getName()}<br>
-      Manager Email: ${manager.getId()}<br>
-      MANAGER ID: ${manager.getEmail()}<br>
-      Manager OfficeNumber:${manager.getOfficeNumber()}<br>
+<div class="card">
+<ul class= managerdiv> 
+     <li> MANAGER NAME: ${manager.getName()}<br></li>
+     <li> Manager Email: ${manager.getId()}<br></li>
+     <li>MANAGER ID: ${manager.getEmail()}<br></li>
+     <li>Manager OfficeNumber:${manager.getOfficeNumber()}<br></li>
+      </ul>
+      </div>
     </body>
+   
     </html>
     
        `;
@@ -36,11 +39,14 @@ const generateemployeeList = (employeeList) => {
         <title>Document</title>
     </head>
     <body>
-        
-      Engineer NAME: ${engineer.getName()}<br>
-      Engineer Email: ${engineer.getId()}<br>
-      Engineer ID: ${engineer.getEmail()}<br>
-      Engineer Github:${engineer.getGithub()}<br>
+    <div class="card">
+    <ul class= engineerdiv> 
+     <li> Engineer NAME: ${engineer.getName()}<br></li>
+     <li> Engineer Email: ${engineer.getId()}<br></li>
+     <li> Engineer ID: ${engineer.getEmail()}<br></li>
+     <li> Engineer Github:${engineer.getGithub()}<br></li>
+     </ul>
+     </div>
     </body>
     </html>
     
@@ -60,11 +66,14 @@ const generateemployeeList = (employeeList) => {
             <title>Document</title>
         </head>
         <body>
-            
-          Intern NAME: ${intern.getName()}<br>
-          Intern Email: ${intern.getEmail()}<br>
-          Intern ID: ${intern.getId()}<br>
-          Intern School:${intern.getSchool()}<br>
+        <div class="card">
+        <ul class= interndiv> 
+         <li> Intern NAME: ${intern.getName()}<br></li>
+         <li> Intern Email: ${intern.getEmail()}<br></li>
+         <li> Intern ID: ${intern.getId()}<br></li>
+         <li> Intern School:${intern.getSchool()}<br></li>
+         </ul>
+         </div>
         </body>
         </html>
         
@@ -116,9 +125,11 @@ const generateHTML = (teammember) => {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.i">
+        <link rel="stylesheet" href="./style.css">
         <title>Document</title>
     </head>
     <body>
+    <header>Team Profile Generator</header>
     ${generateemployeeList(teammember)}  
     </body>
     
