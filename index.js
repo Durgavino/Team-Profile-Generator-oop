@@ -6,6 +6,7 @@ const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const generateHtml = require('./src/generateHtml');
+const generateHTML = require('./src/generateHtml');
 
 const employeeList = [];
 
@@ -162,8 +163,8 @@ const filesys =()=>{
   //  console.log(employeeList,"filesys");
        // const html = generateHtml(employeeList);
 const html=employeeList;
-       console.log(html);
-        fs.writeFile("./dist/index.html",html,"utf8",function(err){
+      // console.log(html);
+        fs.writeFile("./dist/index.html",generateHTML(html),"utf8",function(err){
             if(err){
                 throw err;
                 
