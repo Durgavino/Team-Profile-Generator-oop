@@ -16,6 +16,8 @@ const generateHTML = (teammember)=>{
     var starter = `` // this is going to be the final string that we will append to 
     // for loop of each member
     for( let i=0;i<teammember.length;i++){
+    
+
         if(teammember[i].role == "Manager"){
             starter += generateManager(teammember[i])
     
