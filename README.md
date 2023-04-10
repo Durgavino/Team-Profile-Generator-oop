@@ -13,3 +13,5 @@ None
 ASKBCS
 
 ## Walkthrough Video
+https://drive.google.com/file/d/135eRRhXO8UBsfsBU28ctSrO1kTEESSlF/view
+
