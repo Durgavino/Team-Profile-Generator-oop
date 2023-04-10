@@ -161,10 +161,10 @@ function addIntern() {
 
 const filesys =()=>{
   //  console.log(employeeList,"filesys");
-       const html = generateHtml(employeeList);
-//const html=employeeList;
+      // const html = generateHtml(employeeList);
+const html=employeeList;
       // console.log(html);
-        fs.writeFile("./dist/index.html",html,"utf8",function(err){
+        fs.writeFile("./dist/index.html",generateHtml(html),"utf8",function(err){
             if(err){
                 throw err;
                 
