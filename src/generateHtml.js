@@ -10,14 +10,14 @@ const generateemployeeList = (employeeList) => {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.i">
-        <title>Document</title>
+        <title>Team Profile Generator</title>
     </head>
     <body>
         
-      MANAGER NAME: ${manager.getName()},
-      Manager Email: ${manager.getId()},
-      MANAGER ID: ${manager.getEmail()},
-      Manager OfficeNumber:${manager.getOfficeNumber()},
+      MANAGER NAME: ${manager.getName()}<br>
+      Manager Email: ${manager.getId()}<br>
+      MANAGER ID: ${manager.getEmail()}<br>
+      Manager OfficeNumber:${manager.getOfficeNumber()}<br>
     </body>
     </html>
     
@@ -37,10 +37,10 @@ const generateemployeeList = (employeeList) => {
     </head>
     <body>
         
-      Engineer NAME: ${engineer.getName()},
-      Engineer Email: ${engineer.getId()},
-      Engineer ID: ${engineer.getEmail()},
-      Engineer Github:${engineer.getGithub()},
+      Engineer NAME: ${engineer.getName()}<br>
+      Engineer Email: ${engineer.getId()}<br>
+      Engineer ID: ${engineer.getEmail()}<br>
+      Engineer Github:${engineer.getGithub()}<br>
     </body>
     </html>
     
@@ -61,10 +61,10 @@ const generateemployeeList = (employeeList) => {
         </head>
         <body>
             
-          Intern NAME: ${intern.getName()},
-          Intern Email: ${intern.getEmail()},
-          Intern ID: ${intern.getId()},
-          Intern School:${intern.getSchool()},
+          Intern NAME: ${intern.getName()}<br>
+          Intern Email: ${intern.getEmail()}<br>
+          Intern ID: ${intern.getId()}<br>
+          Intern School:${intern.getSchool()}<br>
         </body>
         </html>
         
@@ -110,7 +110,18 @@ function employeePicker() {
 const generateHTML = (teammember) => {
     // console.log(teammember);
     return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.i">
+        <title>Document</title>
+    </head>
+    <body>
     ${generateemployeeList(teammember)}  
+    </body>
+    
 
 `;
 }
