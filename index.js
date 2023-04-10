@@ -104,7 +104,7 @@ function addEngineer() {
         .then((mval) => {
             const engineer = new Engineer(mval.engineerName, mval.engineerEmail, mval.engineerGithub, mval.engineerId);
             console.log(engineer);
-            // employeeList.push(engineer);
+            employeeList.push(engineer);
             return employeeType();
         })
 }

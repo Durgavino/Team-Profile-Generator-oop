@@ -36,7 +36,7 @@ const generateHTML = teammember => {
     <title>Document</title>
 </head>
 <body>
-    // //${employeePicker()}
+    
   MANAGER NAME:  ${teammember[0].name},
   Manager Email: ${teammember[0].id},
   MANAGER ID: ${teammember[0].email},
