@@ -1,13 +1,73 @@
-const generateManager = function (manager) {
-    return `${manager.name}${manager.id}${manager.email}${manager.officeNumber}`;
+const generateManager = (manager)=> {
+    return `
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  MANAGER NAME: ${manager[0].getName()},
+  Manager Email: ${teammember[0].getId()},
+  MANAGER ID: ${teammember[0].getEmail()},
+  Manager OfficeNumber:${teammember[0].getOfficeNumber()},
+</body>
+</html>
+
+   `;
 }
 
 const generateEngineer = function (engineer) {
-    return `${engineer.name}${engineer.id}${engineer.email}${engineer.github}`;
+    return `
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  Engineer NAME: ${teammember[0].name},
+  Engineer Email: ${teammember[0].id},
+  Engineer ID: ${teammember[0].email},
+  Engineer Github:${teammember[0].officeNumber},
+</body>
+</html>
+
+   `;
+
+    // return `${engineer.name}${engineer.id}${engineer.email}${engineer.github}`;
 }
 
 const generateIntern = function (intern) {
-    return `${intern.name}${intern.id}${intern.email}${intern.school}`;
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+      Intern NAME: ${teammember[0].name},
+      Intern Email: ${teammember[0].id},
+      Intern ID: ${teammember[0].email},
+      Intern School:${teammember[0].school},
+    </body>
+    </html>
+    
+       `;
+    
+    // return `${intern.name}${intern.id}${intern.email}${intern.school}`;
 }
 
 
@@ -22,10 +82,11 @@ function employeePicker() {
             starter += generateIntern(teammember[i])
         }
     }
+ //   return starter;
 }
 
-const generateHTML = teammember => {
-    console.log(teammember);
+const generateHTML = (teammember) => {
+   // console.log(teammember);
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -36,24 +97,14 @@ const generateHTML = teammember => {
     <title>Document</title>
 </head>
 <body>
-    
-  MANAGER NAME:  ${teammember[0].name},
-  Manager Email: ${teammember[0].id},
-  MANAGER ID: ${teammember[0].email},
-  Manager OfficeNumber:${teammember[0].officeNumber},
+${employeePicker(teammember)}    
 </body>
 </html>
 
 `;
 }
-//     var starter = `` // this is going to be the final string that we will append to 
-//     // for loop of each member
-//     for( let i=0;i<teammember.length;i++){
-
-
-//            }
-//         return starter;
-// }
 
 
 module.exports = generateHTML;
+
+
