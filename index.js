@@ -22,22 +22,24 @@ function employeeType() {
         .then(val => {
             if (val.employee === "Manager") {
                 return addManager();
-            
+
             }
             else if (val.employee === "Engineer") {
                 return addEngineer();
-                
+
             }
             else if (val.employee === "Intern") {
                 return addIntern();
-                
-            }
-            else if (val.employee === "I dont want to add the members") {
-                filesys();
-              //return 0;
 
             }
+            else if (val.employee === "I dont want to add the members") {
+
+                //return 0;
+
+            }
+            filesys();
         }
+
         )
 }
 employeeType();
@@ -133,23 +135,38 @@ function addIntern() {
         .then((mval) => {
             const intern = new Intern(mval.internName, mval.internName, mval.internSchool, mval.internId);
             console.log(intern);
-               employeeList.push(intern);
+            employeeList.push(intern);
             return employeeType();
         })
 }
 
 
-const filesys =()=>{
-//console.log(employeeList,"filesys");
+// const filesys = () => {
+//     //console.log(employeeList,"filesys");
+//     for (i = 0; i < employeeList.length; i++) {
+//         fs.writeFile("./dist/index.html",
+//             `Manager Name :${employeeList[0].name},
+//     Manager Id :${employeeList[0].id},
+//     Manager Email :${employeeList[0].email},Manager OfficeNumber :${employeeList[0].officeNumber},`, "utf8", function (err) {
+//             if (err) {
+//                 throw err;
 
-    fs.writeFile("./dist/index.html",
-    `Manager Name :${employeeList[0].name},
-    Manager Id :${employeeList[0].id},
-    Manager Email :${employeeList[0].email},Manager OfficeNumber :${employeeList[0].officeNumber},`,"utf8",function(err){
-        if(err){
-            throw err;
-            
-        }
-        console.log("File Written");
-    })
+//             }
+//             console.log("File Written");
+//         })
+//     }
+
+// }
+
+const filesys =()=>{
+    //console.log(employeeList,"filesys");
+        const html = generateHtml(employeeList)
+        fs.writeFile("./dist/index.html",html,"utf8",function(err){
+            if(err){
+                throw err;
+                
+            }
+            console.log("File Written");
+        })
     }
+
