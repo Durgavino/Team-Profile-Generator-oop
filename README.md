@@ -10,7 +10,7 @@ Install the required packages by runnig the command npm i and for testing npm ru
 None
 
 ## Credits
-ASKBCS
+ASKBCS,Activities.
 
 ## Walkthrough Video
 https://drive.google.com/file/d/135eRRhXO8UBsfsBU28ctSrO1kTEESSlF/view
